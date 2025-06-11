@@ -1,31 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
   <meta charset="UTF-8" />
-  <title>Add News</title>
-  <script src="firebase.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add News - Local News</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
-  <h1>Add News</h1>
-  <form id="news-form">
-    <input type="text" id="title" placeholder="Title" required /><br />
-    <textarea id="content" placeholder="Content" required></textarea><br />
-    <input type="text" id="category" placeholder="Category (e.g., Andhra Pradesh)" required /><br />
+  <h1>Add News Post</h1>
+  <form id="newsForm">
+    <input type="text" id="title" placeholder="Title" required><br><br>
+    <textarea id="content" placeholder="Content" required></textarea><br><br>
+    <select id="district" required>
+      <option value="">Select District</option>
+      <option value="East Godavari">ఈస్ట్ గోదావరి</option>
+      <option value="West Godavari">వెస్ట్ గోదావరి</option>
+      <option value="Guntur">గుంటూరు</option>
+      <option value="Nellore">నెల్లూరు</option>
+      <option value="Krishna">కృష్ణా</option>
+      <option value="Prakasam">ప్రకాశం</option>
+      <option value="Kadapa">కడప</option>
+      <option value="Chittoor">చిత్తూరు</option>
+      <option value="Anantapur">అనంతపురం</option>
+      <option value="Kurnool">కర్నూల్</option>
+    </select><br><br>
     <button type="submit">Post</button>
   </form>
-
-  <script>
-    document.getElementById("news-form").addEventListener("submit", e => {
-      e.preventDefault();
-      const title = document.getElementById("title").value;
-      const content = document.getElementById("content").value;
-      const category = document.getElementById("category").value;
-
-      firebase.database().ref("posts").push({ title, content, category })
-        .then(() => alert("Posted successfully!"))
-        .catch(err => alert("Error: " + err.message));
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local News</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="firebase.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Local News</h1>
+    <nav id="main-nav">
+      <ul>
+        <li>హోం • Home</li>
+        <li>ఆంధ్రప్రదేశ్ • Andhra Pradesh</li>
+        <li>తెలంగాణ • Telangana</li>
+        <li>సినిమా • Movies</li>
+        <li>క్రీడలు • Sports</li>
+        <li>లైవ్ టీవీ • Live TV</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="live-video">
+      <h2>Live TV</h2>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=UCwP5JLZZ3Z1GpxzF0t9KAVg" frameborder="0" allowfullscreen></iframe>
+    </section>
+    <section id="news-container"></section>
+  </main>
+</body>
+</html>

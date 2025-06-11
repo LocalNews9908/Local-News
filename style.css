@@ -1,0 +1,35 @@
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+header {
+  background: #b70000;
+  color: white;
+  padding: 10px;
+}
+header h1 {
+  margin: 0;
+}
+#main-nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  background: #a60000;
+}
+#main-nav li {
+  padding: 10px 15px;
+  color: white;
+  cursor: pointer;
+}
+#main-nav li:hover {
+  background: #910000;
+}
+#live-video {
+  padding: 15px;
+}
+#news-container {
+  padding: 15px;
+}

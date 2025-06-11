@@ -1,34 +1,69 @@
 
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local News</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="firebase.js"></script>
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Local News</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Local News</h1>
-    <nav id="main-nav">
-      <ul>
-        <li>హోం • Home</li>
-        <li>ఆంధ్రప్రదేశ్ • Andhra Pradesh</li>
-        <li>తెలంగాణ • Telangana</li>
-        <li>సినిమా • Movies</li>
-        <li>క్రీడలు • Sports</li>
-        <li>లైవ్ టీవీ • Live TV</li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="live-video">
-      <h2>Live TV</h2>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=UCwP5JLZZ3Z1GpxzF0t9KAVg" frameborder="0" allowfullscreen></iframe>
-    </section>
-    <section id="news-container"></section>
-  </main>
+    <header class="header">
+        <h1>Local News</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">హోం • Home</a></li>
+                <li class="dropdown">
+                    <a href="#">ఆంధ్రప్రదేశ్ • Andhra Pradesh</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#" onclick="filterByDistrict('Anantapur')">అనంతపురం • Anantapur</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Chittoor')">చిత్తూరు • Chittoor</a></li>
+                        <li><a href="#" onclick="filterByDistrict('East Godavari')">తూర్పు గోదావరి • East Godavari</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Guntur')">గుంటూరు • Guntur</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Kadapa')">కడప • Kadapa</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Krishna')">కృష్ణా • Krishna</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Kurnool')">కర్నూలు • Kurnool</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Nellore')">నెల్లూరు • Nellore</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Prakasam')">ప్రకాశం • Prakasam</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Srikakulam')">శ్రీకాకుళం • Srikakulam</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Visakhapatnam')">విశాఖపట్నం • Visakhapatnam</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Vizianagaram')">విజయనగరం • Vizianagaram</a></li>
+                        <li><a href="#" onclick="filterByDistrict('West Godavari')">పడమట గోదావరి • West Godavari</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">తెలంగాణ • Telangana</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#" onclick="filterByDistrict('Adilabad')">ఆదిలాబాద్ • Adilabad</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Bhadradri Kothagudem')">భద్రాద్రి కొత్తగూడెం • Bhadradri Kothagudem</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Hyderabad')">హైదరాబాద్ • Hyderabad</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Jagtial')">జగిత్యాల • Jagtial</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Karimnagar')">కరీంనగర్ • Karimnagar</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Khammam')">ఖమ్మం • Khammam</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Mahabubabad')">మహబూబాబాద్ • Mahabubabad</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Medchal')">మేడ్చల్ • Medchal</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Nalgonda')">నల్గొండ • Nalgonda</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Nizamabad')">నిజామాబాద్ • Nizamabad</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Rangareddy')">రంగారెడ్డి • Rangareddy</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Sangareddy')">సంగారెడ్డి • Sangareddy</a></li>
+                        <li><a href="#" onclick="filterByDistrict('Warangal')">వారంగల్ • Warangal</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">సినిమా • Movies</a></li>
+                <li><a href="#">క్రీడలు • Sports</a></li>
+                <li><a href="#">లైవ్ టీవీ • Live TV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="news-section">
+            <h2>Latest News</h2>
+            <div id="news-container"></div>
+        </section>
+    </main>
+
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

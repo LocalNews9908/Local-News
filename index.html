@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Local News</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li class="dropdown">
-        <a href="#">ఆంధ్రప్రదేశ్ ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="#" onclick="filterByDistrict('East Godavari')">ఈస్ట్ గోదావరి</a></li>
-          <li><a href="#" onclick="filterByDistrict('West Godavari')">వెస్ట్ గోదావరి</a></li>
-          <li><a href="#" onclick="filterByDistrict('Guntur')">గుంటూరు</a></li>
-          <li><a href="#" onclick="filterByDistrict('Nellore')">నెల్లూరు</a></li>
-          <li><a href="#" onclick="filterByDistrict('Krishna')">కృష్ణా</a></li>
-          <li><a href="#" onclick="filterByDistrict('Prakasam')">ప్రకాశం</a></li>
-          <li><a href="#" onclick="filterByDistrict('Kadapa')">కడప</a></li>
-          <li><a href="#" onclick="filterByDistrict('Chittoor')">చిత్తూరు</a></li>
-          <li><a href="#" onclick="filterByDistrict('Anantapur')">అనంతపురం</a></li>
-          <li><a href="#" onclick="filterByDistrict('Kurnool')">కర్నూల్</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <div id="newsContainer">Select a district to see news</div>
-
+  <header>
+    <div class="logo">Local News</div>
+    <nav>
+      <ul class="menu">
+        <li>
+          <a href="#">Andhra Pradesh</a>
+          <ul class="submenu">
+            <li><a href="#" onclick="filterByDistrict('Chittoor (చిత్తూరు)')">Chittoor (చిత్తూరు)</a></li>
+            <li><a href="#" onclick="filterByDistrict('Guntur (గుంటూరు)')">Guntur (గుంటూరు)</a></li>
+            <li><a href="#" onclick="filterByDistrict('Nellore (నెల్లూరు)')">Nellore (నెల్లూరు)</a></li>
+            <!-- Add other AP districts -->
+          </ul>
+        </li>
+        <li>
+          <a href="#">Telangana</a>
+          <ul class="submenu">
+            <li><a href="#" onclick="filterByDistrict('Hyderabad (హైదరాబాద్)')">Hyderabad (హైదరాబాద్)</a></li>
+            <li><a href="#" onclick="filterByDistrict('Warangal (వరంగల్)')">Warangal (వరంగల్)</a></li>
+            <li><a href="#" onclick="filterByDistrict('Karimnagar (కరీంనగర్)')">Karimnagar (కరీంనగర్)</a></li>
+            <!-- Add other TS districts -->
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="news-container"></main>
+  <script src="firebase.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

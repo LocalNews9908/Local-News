@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add News - Local News</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <meta charset="UTF-8">
+  <title>Add News</title>
 </head>
 <body>
-  <h1>Add News Post</h1>
+  <h2>Add News</h2>
   <form id="newsForm">
-    <input type="text" id="title" placeholder="Title" required><br><br>
-    <textarea id="content" placeholder="Content" required></textarea><br><br>
-    <select id="district" required>
-      <option value="">Select District</option>
-      <option value="East Godavari">ఈస్ట్ గోదావరి</option>
-      <option value="West Godavari">వెస్ట్ గోదావరి</option>
-      <option value="Guntur">గుంటూరు</option>
-      <option value="Nellore">నెల్లూరు</option>
-      <option value="Krishna">కృష్ణా</option>
-      <option value="Prakasam">ప్రకాశం</option>
-      <option value="Kadapa">కడప</option>
-      <option value="Chittoor">చిత్తూరు</option>
-      <option value="Anantapur">అనంతపురం</option>
-      <option value="Kurnool">కర్నూల్</option>
-    </select><br><br>
-    <button type="submit">Post</button>
+    <input type="text" id="title" placeholder="Title" required><br>
+    <textarea id="content" placeholder="Content" required></textarea><br>
+    <select id="district">
+      <option value="Chittoor (చిత్తూరు)">Chittoor (చిత్తూరు)</option>
+      <option value="Guntur (గుంటూరు)">Guntur (గుంటూరు)</option>
+      <option value="Hyderabad (హైదరాబాద్)">Hyderabad (హైదరాబాద్)</option>
+      <!-- More districts -->
+    </select><br>
+    <button type="submit">Add</button>
   </form>
-  <script src="script.js"></script>
+  <script src="firebase.js"></script>
+  <script>
+    const db = firebase.database();
+    document.getElementById('newsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+      const district = document.getElementById('district').value;
+      db.ref('news').push({ title, content, district });
+      alert('News added');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
